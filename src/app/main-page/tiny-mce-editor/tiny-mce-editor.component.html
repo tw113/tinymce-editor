@@ -1,1 +1,14 @@
-<editor [initialValue]="question" [plugins]="pluginValues" [toolbar]="toolbarValues" [init]="{menubar: 'false', height: '200'}"></editor>
+<h1 mat-dialof-title>Title</h1>
+<div mat-dialog-content>
+    <editor
+        id="editor"
+        [initialValue]="data.questionText"
+        [plugins]="pluginValues"
+        [toolbar]="toolbarValues"
+        [init]="{menubar: 'false', height: '200', selector: '#editor'}">
+    </editor>
+</div>
+<div mat-dialog-actions class="float-right">
+    <button mat-raised-button (click)="onCloseDialog()">Close</button>
+    <button mat-raised-button color="accent" (click)="updateQuestionText()">Submit</button>
+</div>

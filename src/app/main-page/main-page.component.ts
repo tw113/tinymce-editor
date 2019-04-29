@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { TinyMceEditorComponent } from './tiny-mce-editor/tiny-mce-editor.component';
 
 @Component({
   selector: 'app-main-page',
@@ -9,7 +9,9 @@ import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 })
 export class MainPageComponent implements OnInit {
 
-  questionText: string = "I agree to the rules and bla bla bla"
+  @Input() submittedText: string;
+
+  questionText = "I agree to the rules and bla bla bla";
 
   constructor(public dialog: MatDialog) { }
 
@@ -17,7 +19,7 @@ export class MainPageComponent implements OnInit {
   }
 
   openEditorDialog() {
-    this.dialog.open(EditDialogComponent, {
+    this.dialog.open(TinyMceEditorComponent, {
       width: '50%',
       data: {questionText: this.questionText}
     });
